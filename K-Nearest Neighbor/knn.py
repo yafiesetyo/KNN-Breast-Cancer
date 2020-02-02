@@ -9,7 +9,8 @@ dataset
 #%%
 #data preprocessing #1 (search for some unknown data, then drop the rows that have it (unknown data))
 
-dt_clean = dataset.drop((dataset.loc[dataset['node-caps']=='?']).index)
+target = dataset.loc[(dataset['breast-quad']=='?') | (dataset['node-caps']=='?')]
+dt_clean = dataset.drop(target.index)
 dt_clean
 
 # %%
@@ -50,7 +51,7 @@ from sklearn.metrics import f1_score as f1
 import matplotlib.pyplot as pl
 
 skor = []
-k_range = range(1,64)
+k_range = range(1,23)
 for i in k_range:
     mod = knn(n_neighbors=i)
     mod.fit(att_train,cl_train)
@@ -64,9 +65,9 @@ pl.show()
 
 
 # %%
-#then we got k=63-64 (between them hehe). The Real KNN starts here...
+#then we got k=23 (between them hehe). The Real KNN starts here...
 
-model = knn(n_neighbors=64)
+model = knn(n_neighbors=23)
 model.fit(att_train,cl_train)
 predict = model.predict(att_test)
 predict
