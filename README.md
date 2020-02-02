@@ -1,2 +1,2 @@
 # KNN-Breast-Cancer
-Kegabutan membawa saya kesini hehe...
+Masih sama seperti Naive Bayes (kasusnya),dataset pun masih sama. Happy Mining !!!
